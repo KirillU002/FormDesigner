@@ -98,7 +98,7 @@ VSIX пишет события `VSIX_DESIGNER_COMMAND`, `VSIX_HOST_START`, `VSIX
 
 ## Ограничения PoC
 
-Не реализованы native embedded Designer tab, контекстное `Open With`, native Visual Studio Toolbox/Properties, split view, VS Undo/Redo, Grid/StackPanel/DataGrid/Eremex round-trip, SQL/DLL, изменение NuGet package references и live synchronization. Команда находится в `Tools` и становится доступна только при активном `.axaml` документе.
+Не реализованы native embedded Designer tab, контекстное `Open With`, native Visual Studio Toolbox/Properties, split view, VS Undo/Redo, Grid/StackPanel/DataGrid/Eremex round-trip, SQL/DLL, изменение NuGet package references и live synchronization. Команда всегда видна в `Tools -> Avalonia UI Visual Designer -> Open Designer`; при запуске она проверяет, что активный документ имеет расширение `.axaml`.
 
 `Eremex` намеренно не загружается в `VsHost` PoC: проверяется документное владение, IPC и общий Designer, а не third-party visual stack.
 
@@ -107,7 +107,7 @@ VSIX пишет события `VSIX_DESIGNER_COMMAND`, `VSIX_HOST_START`, `VSIX
 Fixture: [Samples/VisualStudioPoC/SimpleAvaloniaApp/MainWindow.axaml](../Samples/VisualStudioPoC/SimpleAvaloniaApp/MainWindow.axaml).
 
 1. Откройте `SimpleAvaloniaApp.csproj` в Visual Studio.
-2. Откройте `MainWindow.axaml` и выберите `Tools -> Open in Avalonia UI Visual Designer`.
+2. Откройте `MainWindow.axaml` и выберите `Tools -> Avalonia UI Visual Designer -> Open Designer`.
 3. Измените `Button1.Content`, `Button1.Width` и положение `Button1` на Canvas.
 4. Нажмите `Apply changes` в отдельном `AvaloniaDesigner.VsHost.exe`.
 5. Убедитесь, что AXAML buffer в Visual Studio стал dirty и diff содержит только изменённые attribute values.

@@ -3,16 +3,25 @@
   <Extern href="stdidcmd.h" />
   <Extern href="vsshlids.h" />
   <Commands package="guidAvaloniaDesignerVsixPackage">
+    <Menus>
+      <Menu guid="guidAvaloniaDesignerVsixCmdSet" id="DesignerMenu" priority="0x0600" type="Menu">
+        <Parent guid="guidSHLMainMenu" id="IDG_VS_MM_TOOLSADDINS" />
+        <CommandFlag>AlwaysCreate</CommandFlag>
+        <Strings>
+          <ButtonText>Avalonia UI Visual Designer</ButtonText>
+        </Strings>
+      </Menu>
+    </Menus>
     <Groups>
-      <Group guid="guidAvaloniaDesignerVsixCmdSet" id="DesignerGroup" priority="0x0600">
-        <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS" />
+      <Group guid="guidAvaloniaDesignerVsixCmdSet" id="DesignerGroup" priority="0x0100">
+        <Parent guid="guidAvaloniaDesignerVsixCmdSet" id="DesignerMenu" />
       </Group>
     </Groups>
     <Buttons>
       <Button guid="guidAvaloniaDesignerVsixCmdSet" id="OpenInDesignerCommand" priority="0x0100" type="Button">
         <Parent guid="guidAvaloniaDesignerVsixCmdSet" id="DesignerGroup" />
         <Strings>
-          <ButtonText>Open in Avalonia UI Visual Designer</ButtonText>
+          <ButtonText>Open Designer</ButtonText>
         </Strings>
       </Button>
     </Buttons>
@@ -20,7 +29,8 @@
   <Symbols>
     <GuidSymbol name="guidAvaloniaDesignerVsixPackage" value="{97151B7E-03CD-468B-80F6-32601757621A}" />
     <GuidSymbol name="guidAvaloniaDesignerVsixCmdSet" value="{343D141A-A3FC-4BA7-A0B0-A61F23AF1BCB}">
-      <IDSymbol name="DesignerGroup" value="0x1020" />
+      <IDSymbol name="DesignerMenu" value="0x1020" />
+      <IDSymbol name="DesignerGroup" value="0x1021" />
       <IDSymbol name="OpenInDesignerCommand" value="0x0100" />
     </GuidSymbol>
   </Symbols>
